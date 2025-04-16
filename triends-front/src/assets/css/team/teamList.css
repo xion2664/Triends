@@ -1,0 +1,80 @@
+.container {
+  width: 60%;
+  height: 100%;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 30px 0;
+}
+.team-header h1 {
+  margin: 0;
+  font-weight: 900;
+}
+
+.create-team {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 70px;
+  margin: 10px 0;
+  padding: 10px 0;
+
+  border: 1px solid var(--gray);
+  border-radius: 15px;
+  opacity: 0.5;
+}
+.create-team * {
+  text-decoration: none;
+}
+
+.before-create a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.before-create a span {
+  font-weight: 200;
+  color: var(--dark-gray);
+}
+.before-create img {
+  width: 25px;
+  margin: 10px;
+}
+.before-create:hover {
+  opacity: 1;
+}
+
+.do-create input {
+  padding: 10px 20px;
+
+  border: 1px solid var(--gray);
+  border-radius: 50px 0px 0px 50px;
+
+  color: var(--main-black);
+}
+.do-create input::placeholder {
+  color: var(--dark-gray);
+}
+
+.create-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  padding: 10px 30px 10px 20px;
+
+  border: 1px solid var(--gray);
+  border-radius: 0px 50px 50px 0px;
+  background-color: var(--gray);
+}
+#create {
+  width: 55px;
+  margin: 0;
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.ssafy.triends.team.model.mapper.TeamMapper">
+
+	<resultMap type="team" id="teamMap">
+		<result column="team_id" property="teamId" />
+		<result column="team_name" property="teamName" />
+	</resultMap>
+
+	<resultMap type="member" id="memberMap">
+		<result column="user_id" property="userId" />
+		<result column="user_name" property="userName" />
+		<result column="user_pass" property="userPass" />
+	</resultMap>
+
+	<resultMap type="teamMember" id="teamMemberMap">
+		<result column="team_id" property="teamId" />
+		<result column="user_id" property="userId" />
+	</resultMap>
+
+	<resultMap type="teamInvite" id="teamInviteMap">
+		<result column="team_id" property="teamId" />
+		<result column="team_name" property="teamName" />
+		<result column="from_user_id" property="fromUserId" />
+		<result column="from_user_name" property="fromUserName" />
+		<result column="to_user_id" property="toUserId" />
+	</resultMap>
+	
+	<delete id="deleteTeamInvite">
+		delete from team_invite
+		where team_id = #{teamId}
+		and to_user_id = #{userId}
+	</delete>
+
+	<select id="selectTeamInviteByUserId" resultMap="teamInviteMap">
+		select team_id,team_name, from_user_id,user_name as from_user_name
+		,to_user_id
+		from team_invite t join member m
+		on t.from_user_id = m.user_id
+		join team
+		using (team_id)
+		where to_user_id = #{userId}
+	</select>
+
+	<insert id="insertTeamInvite" parameterType="teamInvite">
+		insert into team_invite (team_id,from_user_id,to_user_id)
+		values (#{teamId},#{fromUserId},#{toUserId})
+	</insert>
+
+	<delete id="deleteEmptyTeam">
+		delete from team
+		where team_id not in (
+		select team_id
+		from team_member
+		group by team_id
+		);
+	</delete>
+
+	<delete id="deleteTeamMember">
+		delete from team_member
+		where user_id=#{userId} and team_id = #{teamId}
+	</delete>
+
+	<select id="selectNotTeamMember" parameterType="int"
+		resultMap="memberMap">
+		select distinct user_id,user_name from
+		team_member right join member
+		using (user_id)
+		where user_id not in (
+		select user_id from team_member
+		where team_id = #{teamId}
+		);
+	</select>
+
+	<insert id="insertTeam" parameterType="team"
+		useGeneratedKeys="true" keyProperty="teamId">
+		insert into team (team_name)
+		values (#{teamName})
+	</insert>
+
+	<insert id="insertTeamMember" parameterType="teamMember">
+		insert into
+		team_member (team_id,user_id)
+		values (#{teamId},#{userId})
+	</insert>
+
+	<select id="selectTeamByUserId" parameterType="team"
+		resultMap="teamMap">
+		select distinct team_id,team_name
+		from team join team_member
+		using(team_id)
+		where user_id = #{userId}
+		order by team_id desc
+	</select>
+
+	<select id="selectTeamMember" parameterType="int"
+		resultMap="memberMap">
+		select distinct user_id,user_name,email
+		from team_member join member
+		using (user_id)
+		where team_id = #{teamId}
+	</select>
+
+</mapper>

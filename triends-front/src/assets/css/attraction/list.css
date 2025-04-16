@@ -1,0 +1,145 @@
+.attraction-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--main-black);
+  position: relative;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.condition-space {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 60%;
+  position: absolute;
+  z-index: 9;
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+  box-shadow: 0 2px 5px 0 rgb(0, 0, 0, 0.3);
+  background-color: white;
+  color: var(--main-black);
+}
+
+.condition-space h2 {
+  font-weight: 700;
+}
+
+.input-space {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.select-space {
+  display: flex;
+  flex-direction: row;
+}
+.select-space select {
+  margin-right: 10px;
+  border: solid 1px;
+  border-color: var(--gray);
+  border-radius: 100px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  background-color: white;
+}
+select:focus {
+  outline: none;
+}
+
+.search-space {
+  background-color: white;
+  border: solid 1px;
+  border-color: var(--gray);
+  border-radius: 100px;
+  padding: 5px 10px;
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+}
+.search-space input {
+  border: none;
+}
+.search-space img {
+  width: 20px;
+  margin: 5px;
+}
+
+.list-container {
+  z-index: 8;
+
+  width: 60%;
+  padding: 20px;
+
+  box-shadow: 0 -2px 5px 0 rgb(0, 0, 0, 0.3);
+  border-radius: 20px 20px 0px 0px;
+}
+
+.select-content-type-space {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 20px 20px 0px 20px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid var(--main-gray);
+}
+.content-type-image {
+  width: 45px;
+}
+
+.list {
+  width: 100%;
+  padding: 20px;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 535px));
+}
+.list-item {
+  width: 100%;
+}
+.list #attraction-img {
+  width: 30%;
+  height: 100px;
+  border-radius: 10px 10px 10px 0px;
+  background-color: white;
+  object-fit: cover;
+  box-shadow: inset 5px 2px 5px 5px rgb(0, 0, 0, 0.3);
+}
+
+.detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  margin: 10px;
+}
+.text-space {
+  width: 60%;
+  color: var(--dark-gray);
+}
+.text-space h5 {
+  color: var(--main-black);
+}
+.text-space .addr {
+  font-size: 14px;
+  color: var(--gray);
+}
+.text-space h5,
+.text-space p {
+  margin: 5px 0px;
+}

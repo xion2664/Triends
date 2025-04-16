@@ -1,0 +1,37 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.follow-txt {
+  margin: 10px 0 30px 0;
+  color: var(--dark-gray);
+}
+
+.sign {
+  width: 350px;
+  height: 60px;
+  margin: 5px;
+  padding: 20px;
+
+  border-radius: 15px;
+}
+.sign-input {
+  background-color: rgb(231, 231, 231);
+  border: none;
+}
+
+.sign-button {
+  color: white;
+  background-color: rgb(50, 62, 62);
+  border: 0px;
+}
+

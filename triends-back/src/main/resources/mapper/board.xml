@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.triends.board.model.mapper.BoardMapper">
+
+	<resultMap type="boardDto" id="article">
+		<result column="user_id" property="userId"/>
+		<result column="user_name" property="userName"/>
+		<result column="register_time" property="registerTime"/>
+		<result column="image_path" property="imagePath"/>
+	</resultMap>
+	
+	<insert id="writeArticle" parameterType="boardDto">
+		insert into board (title, content, user_id, user_name, `like`, register_time, image_path)
+	  	values (
+		    #{title},
+		    #{content},
+		    #{userId},
+		    (SELECT user_name FROM member WHERE user_id = #{userId}),
+		    0,
+		    now(),
+		    #{imagePath}
+ 			)
+	</insert>
+	 
+	<select id="listArticle" resultMap="article">
+		select no, title, content, user_id, user_name, `like`, register_time, image_path
+		from board
+		order by register_time desc
+	</select>
+	
+	<select id="listArticleByLike" resultMap="article">
+		select no, title, content, user_id, user_name, `like`, register_time, image_path
+		from board
+		order by `like` desc, register_time desc
+	</select>
+	
+	<delete id="deleteArticle" parameterType="int">
+        DELETE FROM board
+        WHERE no = #{articleNo}
+    </delete>
+	
+</mapper>

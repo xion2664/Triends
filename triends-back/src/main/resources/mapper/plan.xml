@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.triends.team.model.mapper.PlanMapper">
+	
+	<resultMap type="plan" id="planMap">
+		<result column="plan_id" property="planId"/>
+		<result column="plan_name" property="planName"/>
+		<result column="team_id" property="teamId"/>
+	</resultMap>
+	
+	<resultMap type="planPlace" id="planPlaceMap">
+		<result column="plan_id" property="planId"/>
+		<result column="place_id" property="placeId"/>
+	</resultMap>
+	
+<!--	void insertPlan(Plan plan) throws Exception;
+	List<Plan> listPlan(int teamId) throws Exception;
+	void insertPlanPlace(PlanPlace planPlace) throws Exception;
+	List<PlanPlace> listPlanPlace(int planId) throws Exception;
+-->	
+<!--	<insert id="insertPlan" parameterType="plan">
+	    INSERT INTO plan (plan_name, team_id, date)
+	    VALUES (#{planName}, #{teamId}, #{date})
+	</insert>
+	-->
+	<select id="listPlan" resultMap="planMap" parameterType="int">
+	    SELECT plan_id, plan_name, team_id, date
+	    FROM plan
+	    WHERE team_id = #{teamId}
+	</select>
+<!-- 
+	<insert id="insertPlanPlace" parameterType="planPlace">
+	    INSERT INTO plan_place (plan_id, place_id, `order`)
+	    VALUES (#{planId}, #{placeId}, #{order})
+	</insert>
+	 -->
+	<select id="listPlanPlace" resultMap="planPlaceMap" parameterType="int">
+	    SELECT plan_id, place_id, title, image
+	    FROM plan_place
+	    WHERE plan_id = #{planId}
+	</select>	
+	  <insert id="insertPlan" parameterType="com.ssafy.triends.team.model.Plan" useGeneratedKeys="true" keyProperty="planId">
+        INSERT INTO plan (plan_name, team_id, date) VALUES (#{planName}, #{teamId}, #{date})
+    </insert>
+
+    <delete id="deleteByTeamId" parameterType="int">
+        DELETE FROM plan WHERE team_id = #{teamId}
+    </delete>
+    
+    <insert id="insertPlanPlace" parameterType="com.ssafy.triends.team.model.PlanPlace">
+        INSERT INTO plan_place (plan_id, place_id, title, image) VALUES (#{planId}, #{placeId}, #{title}, #{image})
+    </insert>
+	
+</mapper>

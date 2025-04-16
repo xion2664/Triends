@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.ssafy.triends.attraction.model.mapper.AttractionMapper">
+
+	<resultMap type="attraction" id="attractionMap">
+		<result column="content_id" property="contentId" />
+		<result column="content_type_id" property="contentTypeId" />
+		<result column="sido_code" property="sidoCode" />
+		<result column="gugun_code" property="gugunCode" />
+		<result column="first_image" property="firstImage" />
+		<result column="first_image2" property="firstImage2" />
+	</resultMap>
+
+	<select id="select" parameterType="int"
+		resultMap="attractionMap">
+		select * from
+		attraction_info
+		join attraction_description
+		using (content_id)
+		where content_id = #{contentId}
+	</select>
+
+	<select id="selectList" parameterType="attraction"
+		resultMap="attractionMap">
+		select * from
+		attraction_info
+		join attraction_description
+		using
+		(content_id)
+		where
+		sido_code = #{sidoCode}
+		and content_type_id =
+		#{contentTypeId}
+		and
+		first_image != ""
+		limit 500
+	</select>
+
+	<select id="searchList" parameterType="map"
+		resultMap="attractionMap">
+		select * from
+		attraction_info
+		join attraction_description
+		using
+		(content_id)
+		where
+		sido_code = #{sido}
+		and
+		first_image != ""
+		<if test="keyword != null and keyword != ''">
+			AND
+			(title LIKE CONCAT('%',
+			#{keyword}, '%') OR
+			overview
+			LIKE
+			CONCAT('%',
+			#{keyword}, '%'))
+			ORDER BY
+			CASE
+			WHEN title LIKE
+			CONCAT('%',
+			#{keyword},
+			'%') THEN 1
+			ELSE 2
+			END,
+			title,
+			overview
+			limit 500
+		</if>
+	</select>
+</mapper>
