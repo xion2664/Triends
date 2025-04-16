@@ -2,10 +2,8 @@
 
 </br>
 
-# triends-front
+> ## 친구들과 함께 하는 즐거운 여행, 커뮤니티 중심 여행 사이트 Triends입니다.
 
-> ## 친구들과 함께 하는 즐거운 여행, 커뮤니티 중심 여행 사이트 Triends의 프론트엔드 코드입니다.
-> ### [백엔드 코드 보러가기](https://github.com/EnjoyTrip-team4/triends-back)
 
 <img src="https://img.shields.io/badge/vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> 
 <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
@@ -13,6 +11,13 @@
 <img src="https://img.shields.io/badge/jitsi-97979A?style=for-the-badge&logo=jitsi&logoColor=white"> 
 <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"> 
 <img src="https://img.shields.io/badge/vscode-007ACC?style=for-the-badge&logo=visual studio code&logoColor=white"> 
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
+
+</br>
+
+<img src="https://img.shields.io/badge/spring boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/java-4479A1?style=for-the-badge&logo=java&logoColor=white"> 
+<img src="https://img.shields.io/badge/amazon rds-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white"> 
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> 
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
 
 </br>
@@ -69,27 +74,6 @@
 </br>
 
 
-![image1](https://github.com/EnjoyTrip-team4/triends-back/assets/82896260/fe1babad-0987-43f4-b49a-97e284d8c113)
-
-</br>
-
-# triends-back
-
-> ## 친구들과 함께 하는 즐거운 여행, 커뮤니티 중심 여행 사이트 Triends의 백엔드 코드입니다.
-> ### [프론트엔드 코드 보러가기](https://github.com/EnjoyTrip-team4/triends-front)
-
-<img src="https://img.shields.io/badge/spring boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/java-4479A1?style=for-the-badge&logo=java&logoColor=white"> 
-<img src="https://img.shields.io/badge/amazon rds-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white"> 
-<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> 
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
-
-</br>
-
-## 프로젝트 정보
-> ### 기간: 2023.11.8 ~ 2023.11.23 (2주)
-> ### 팀원: 총 3명
-
-</br>
 
 ## ER Diagram
 ![image5](https://github.com/EnjoyTrip-team4/triends-back/assets/82896260/317ad680-db87-4631-b5de-67d94ff6da6f)
